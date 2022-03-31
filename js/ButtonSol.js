@@ -24,17 +24,17 @@ export default class ButtonSol {
         button.checkCollisions = true;
     }
 
-    buttonClik(scene, wall, tank, n) {
+    buttonClik(scene, wall, mainSoul, n) {
         let button = scene.getMeshByName("buttonSol" + this.n);
         button.actionManager = new BABYLON.ActionManager(scene);
 
         // si collision avec le personnage le mur se soulève
-        button.actionManager.registerAction(new BABYLON.ExecuteCodeAction({ trigger: BABYLON.ActionManager.OnIntersectionEnterTrigger, parameter: { mesh: tank } }, function () {
+        button.actionManager.registerAction(new BABYLON.ExecuteCodeAction({ trigger: BABYLON.ActionManager.OnIntersectionEnterTrigger, parameter: { mesh: mainSoul } }, function () {
             wall.position.y += 30;
             if (wall.position.y > 80) { wall.position.y = 80; }
         }));
-        button.actionManager.registerAction(new BABYLON.ExecuteCodeAction({ trigger: BABYLON.ActionManager.OnIntersectionExitTrigger, parameter: { mesh: tank } }, function () {
-            if (tank.position.y > 5) { tank.position.y = 5; }
+        button.actionManager.registerAction(new BABYLON.ExecuteCodeAction({ trigger: BABYLON.ActionManager.OnIntersectionExitTrigger, parameter: { mesh: mainSoul } }, function () {
+            if (mainSoul.position.y > 5) { mainSoul.position.y = 5; }
             if (n === 5 || n === 7) { wall.position.y -= 30; } // ces boutons doivent rester enfoncé pour garder la porte ouverte
             if (n === 9 || n === 10 || n === 11) { // ces boutons fermeront la porte automatiquement apres 200ms
                 setTimeout(() => {

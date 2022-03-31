@@ -28,7 +28,7 @@ export default class Dude {
         // method, we will not move the dude but the BBox instead
         this.dudeMesh.position = new BABYLON.Vector3(this.bounder.position.x, this.bounder.position.y, this.bounder.position.z);
         // follow the tank
-        let tank = scene.getMeshByName("heroTank");
+        let tank = scene.getMeshByName("mainSoul");
         // let's compute the direction vector that goes from Dude to the tank
         let direction = tank.position.subtract(this.dudeMesh.position);
         let distance = direction.length(); // we take the vector that is not normalized, not the dir vector

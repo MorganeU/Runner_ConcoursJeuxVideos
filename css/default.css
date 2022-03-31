@@ -7,5 +7,10 @@ body {
 #myCanvas {
   border: 1px solid black;
   width: 99.8%;
-  height: 99.5%;
+  height: 94.5%;
+}
+
+div {
+  background-color: white;
+  margin-left:10px;
 }
